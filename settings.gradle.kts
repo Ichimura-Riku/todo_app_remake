@@ -22,4 +22,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "todo_app_remake"
 include(":app")
- 
