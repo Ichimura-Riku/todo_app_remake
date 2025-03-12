@@ -8,12 +8,12 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: main # 一度mainでcheckoutする
-            - uses: actions/checkout@v2 # 目的のブランチでcheckoutする
+      - uses: actions/checkout@v2 # 目的のブランチでcheckoutする
       - uses: actions/setup-java@v1 # JDK 11が必要なければ消してください
         with:
-          java-version: '11'
+          java-version: '17'
       - run: ./gradlew spotlessKotlinApply
       - uses: reviewdog/action-suggester@v1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           tool_name: spotless
