@@ -1,4 +1,4 @@
-package com.example.todo_app_remake
+package com.example.todoAppRemake
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -11,18 +11,18 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.todo_app_remake.ui.theme.Todo_app_remakeTheme
+import com.example.todoAppRemake.ui.theme.TodoAppRemakeTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            Todo_app_remakeTheme {
+            TodoAppRemakeTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
                         name = "Android",
-                        modifier = Modifier.padding(innerPadding)
+                        modifier = Modifier.padding(innerPadding),
                     )
                 }
             }
@@ -31,17 +31,20 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
+fun Greeting(
+    name: String,
+    modifier: Modifier = Modifier,
+) {
     Text(
         text = "Hello $name!",
-        modifier = modifier
+        modifier = modifier,
     )
 }
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
-    Todo_app_remakeTheme {
+private fun GreetingPreview() {
+    TodoAppRemakeTheme {
         Greeting("Android")
     }
 }

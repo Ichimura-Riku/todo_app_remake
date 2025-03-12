@@ -1,4 +1,4 @@
-package com.example.todo_app_remake.ui.theme
+package com.example.todoAppRemake.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

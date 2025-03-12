@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.todo_app_remake"
+    namespace = "com.example.todoAppRemake"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.todo_app_remake"
+        applicationId = "com.example.todoAppRemake"
         minSdk = 29
         targetSdk = 35
         versionCode = 1
@@ -23,7 +23,7 @@ android {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro",
             )
         }
     }
