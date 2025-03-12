@@ -14,7 +14,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import com.example.todoAppRemake.ui.screen.HomeScreen
 import com.example.todoAppRemake.ui.theme.TodoAppRemakeTheme
 
 class MainActivity : ComponentActivity() {
@@ -23,7 +23,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             TodoAppRemakeTheme {
-                AppScaffold()
+                AppScaffold(modifier = Modifier)
             }
         }
     }
@@ -47,28 +47,6 @@ fun AppScaffold(modifier: Modifier = Modifier) {
             )
         },
     ) { innerPadding ->
-        Greeting(
-            name = "Android",
-            modifier = Modifier.padding(innerPadding),
-        )
-    }
-}
-
-@Composable
-fun Greeting(
-    name: String,
-    modifier: Modifier = Modifier,
-) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier,
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-private fun GreetingPreview() {
-    TodoAppRemakeTheme {
-        AppScaffold(modifier = Modifier.fillMaxSize())
+        HomeScreen(modifier = Modifier.padding(innerPadding))
     }
 }
