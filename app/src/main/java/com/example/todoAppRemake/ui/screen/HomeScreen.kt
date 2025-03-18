@@ -21,17 +21,6 @@ import com.example.todoAppRemake.ui.theme.TodoAppRemakeTheme
 
 @Composable
 fun HomeScreen(modifier: Modifier = Modifier) {
-//    Column(
-//        modifier =
-//            modifier
-//                .fillMaxSize()
-//                .padding(start = 0.dp, top = 16.dp, end = 0.dp, bottom = 0.dp),
-//        horizontalAlignment = Alignment.CenterHorizontally,
-//    ) {
-//        TodoCard(modifier = Modifier)
-//        TodoCard(modifier = Modifier)
-//        TodoCard(modifier = Modifier)
-//    }
     val mockTodoPropertiesList =
         List(5) { index ->
             MockTodoCardProperties(
