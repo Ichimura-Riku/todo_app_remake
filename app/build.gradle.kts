@@ -3,6 +3,8 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -64,9 +66,14 @@ dependencies {
     implementation(libs.converter.scalars)
     // Gson
     implementation(libs.gson)
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
 }
 secrets {
     // Optionally specify a different file name containing your secrets.
     // The plugin defaults to "local.properties"
     propertiesFileName = "secrets.properties"
+}
+kapt {
+    correctErrorTypes = true
 }
