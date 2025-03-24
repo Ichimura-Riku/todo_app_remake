@@ -1,6 +1,5 @@
 package com.example.todoAppRemake.ui.screen
 
-import android.R.attr.text
 import android.util.Log
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -52,7 +51,10 @@ fun TodoCard(
     onClick: () -> Unit = {},
 ) {
     Box(
-        modifier = modifier.fillMaxWidth().clickable { onClick() },
+        modifier =
+        modifier
+            .fillMaxWidth()
+            .clickable { onClick() },
         contentAlignment = Alignment.Center,
     ) {
         Text(
