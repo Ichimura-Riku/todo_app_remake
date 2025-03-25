@@ -68,6 +68,10 @@ dependencies {
     implementation(libs.gson)
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
+    // navigationCompose
+    implementation(libs.androidx.navigation.compose)
+    // hiltNavigationCompose
+    implementation(libs.androidx.hilt.navigation.compose)
 }
 secrets {
     // Optionally specify a different file name containing your secrets.
