@@ -2,7 +2,7 @@ name: reviewdog-suggester
 on: [ pull_request ]
 jobs:
   kotlin:
-    name: runner / suggester / spotless
+    name: / runner / suggester / spotless
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -12,6 +12,9 @@ jobs:
       - uses: actions/setup-java@v1 # JDK 11が必要なければ消してください
         with:
           java-version: '17'
+      - name: Create secrets.properties
+        run: |
+          echo "${{ secrets.SECRETS_PROPERTIES }}" > secrets.properties
       - run: ./gradlew spotlessKotlinApply
       - uses: reviewdog/action-suggester@v1
         with:
