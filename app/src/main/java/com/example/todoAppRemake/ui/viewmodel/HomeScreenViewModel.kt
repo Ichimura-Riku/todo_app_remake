@@ -17,8 +17,9 @@ constructor() : ViewModel() {
         viewModelScope.launch {
             try {
                 val response = NotionApiClient.client.getDatabase(BuildConfig.NOTION_DB_ID)
+                Log.d("HomeScreenViewModel", "Response: $response")
             } catch (e: Exception) {
-                Log.e("HomeScreenViewModel", "Error fetching Notion database", e)
+                Log.e("HomeScreenViewModel", "Error fetching Notion database$e")
             }
         }
     }

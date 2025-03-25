@@ -72,6 +72,8 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
     // hiltNavigationCompose
     implementation(libs.androidx.hilt.navigation.compose)
+
+    implementation(libs.converter.gson)
 }
 secrets {
     // Optionally specify a different file name containing your secrets.
