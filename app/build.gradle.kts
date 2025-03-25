@@ -65,7 +65,7 @@ dependencies {
     // Retrofit with Scalar Converter
     implementation(libs.converter.scalars)
     // Gson
-    implementation(libs.gson)
+//    implementation(libs.gson)
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
     // navigationCompose
