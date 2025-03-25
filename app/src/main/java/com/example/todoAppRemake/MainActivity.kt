@@ -14,9 +14,11 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.example.todoAppRemake.ui.screen.HomeScreen
+import com.example.todoAppRemake.ui.AppNav
 import com.example.todoAppRemake.ui.theme.TodoAppRemakeTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,6 +49,7 @@ fun AppScaffold(modifier: Modifier = Modifier) {
             )
         },
     ) { innerPadding ->
-        HomeScreen(modifier = Modifier.padding(innerPadding))
+//        HomeScreen(modifier = Modifier.padding(innerPadding))
+        AppNav(modifier = Modifier.padding(innerPadding))
     }
 }
