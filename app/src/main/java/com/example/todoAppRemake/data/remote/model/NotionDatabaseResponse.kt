@@ -5,20 +5,20 @@ import com.google.gson.annotations.SerializedName
 data class NotionDatabaseResponse(
     @SerializedName("object") val objectType: String,
     val id: String,
-    val title: List<Title>,
-    val properties: Map<String, Property>,
+    val title: List<NotionDatabaseTitle>,
+    val properties: Map<String, NotionDatabaseProperty>,
 )
 
-data class Title(
+data class NotionDatabaseTitle(
     val type: String,
-    val text: Text,
+    val text: NotionDatabaseText,
 )
 
-data class Text(
+data class NotionDatabaseText(
     val content: String,
 )
 
-data class Property(
+data class NotionDatabaseProperty(
     val id: String,
     val name: String,
     val type: String,
