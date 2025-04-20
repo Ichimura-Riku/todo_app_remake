@@ -1,9 +1,11 @@
 package com.example.todoAppRemake.data.remote
 
 import com.example.todoAppRemake.BuildConfig
+import com.example.todoAppRemake.data.remote.model.NotionDatabasePagesResponse
 import com.example.todoAppRemake.data.remote.model.NotionDatabaseResponse
 import retrofit2.http.GET
 import retrofit2.http.Header
+import retrofit2.http.POST
 import retrofit2.http.Path
 
 interface NotionApiService {
@@ -13,4 +15,11 @@ interface NotionApiService {
         @Header("Authorization") auth: String = "Bearer ${BuildConfig.NOTION_API_KEY}",
         @Header("Notion-Version") version: String = BuildConfig.NOTION_VERSION,
     ): NotionDatabaseResponse
+
+    @POST("v1/databases/{database_id}/query")
+    suspend fun getDatabasePages(
+        @Path("database_id") databaseId: String,
+        @Header("Authorization") auth: String = "Bearer ${BuildConfig.NOTION_API_KEY}",
+        @Header("Notion-Version") version: String = BuildConfig.NOTION_VERSION,
+    ): NotionDatabasePagesResponse
 }
