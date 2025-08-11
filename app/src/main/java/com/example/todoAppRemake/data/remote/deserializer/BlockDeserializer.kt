@@ -29,8 +29,13 @@ class BlockDeserializer : JsonDeserializer<Block> {
             "numbered_list_item" -> deserializationContext.deserialize(jsonObject, Block.NumberedListItem::class.java)
             // Add other block types as needed
             else -> {
-                // Log or handle unsupported types gracefully
-                deserializationContext.deserialize(jsonObject, Block.Unsupported::class.java)
+                val id = jsonObject["id"]?.asString ?: throw JsonParseException("Missing 'id' field in Block JSON")
+                val hasChildren = jsonObject["has_children"]?.asBoolean ?: false
+                Block.Unsupported(
+                    id = id,
+                    type = type,
+                    hasChildren = hasChildren,
+                )
             }
         }
     }
