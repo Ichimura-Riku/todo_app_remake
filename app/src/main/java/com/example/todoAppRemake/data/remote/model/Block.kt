@@ -69,6 +69,13 @@ sealed class Block {
         @SerializedName("bulleted_list_item") val content: ListItemContent,
     ) : Block()
 
+    data class NumberedListItem(
+        override val id: String,
+        override val type: String,
+        override val hasChildren: Boolean,
+        @SerializedName("numbered_list_item") val content: ListItemContent,
+    ) : Block()
+
     data class Unsupported(
         override val id: String,
         override val type: String,

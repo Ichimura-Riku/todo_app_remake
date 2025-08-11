@@ -26,6 +26,7 @@ class BlockDeserializer : JsonDeserializer<Block> {
             "to_do" -> deserializationContext.deserialize(jsonObject, Block.ToDo::class.java)
             "toggle" -> deserializationContext.deserialize(jsonObject, Block.Toggle::class.java)
             "bulleted_list_item" -> deserializationContext.deserialize(jsonObject, Block.BulletedListItem::class.java)
+            "numbered_list_item" -> deserializationContext.deserialize(jsonObject, Block.NumberedListItem::class.java)
             // Add other block types as needed
             else -> {
                 // Log or handle unsupported types gracefully
