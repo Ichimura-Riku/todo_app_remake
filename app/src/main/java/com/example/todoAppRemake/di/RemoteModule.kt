@@ -1,6 +1,10 @@
 package com.example.todoAppRemake.di
 
 import com.example.todoAppRemake.data.remote.NotionApiService
+import com.example.todoAppRemake.data.remote.deserializer.BlockDeserializer
+import com.example.todoAppRemake.data.remote.model.Block
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,17 +22,19 @@ object RemoteModule {
 
     @Provides
     @Singleton
-    fun provideGsonConverterFactory(): GsonConverterFactory = GsonConverterFactory.create()
+    fun provideGson(): Gson = GsonBuilder()
+        .registerTypeAdapter(Block::class.java, BlockDeserializer())
+        .create()
 
     @Provides
     @Singleton
     fun provideRetrofit(
         baseUrl: String,
-        gsonConverterFactory: GsonConverterFactory,
+        gson: Gson,
     ): Retrofit = Retrofit
         .Builder()
         .baseUrl(baseUrl)
-        .addConverterFactory(gsonConverterFactory)
+        .addConverterFactory(GsonConverterFactory.create(gson))
         .build()
 
     @Provides
