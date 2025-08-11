@@ -30,7 +30,6 @@ class BlockDeserializer : JsonDeserializer<Block> {
             // Add other block types as needed
             else -> {
                 // Log or handle unsupported types gracefully
-                println("Unsupported block type: $type")
                 deserializationContext.deserialize(jsonObject, Block.Unsupported::class.java)
             }
         }
