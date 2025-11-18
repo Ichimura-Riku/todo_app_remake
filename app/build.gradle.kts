@@ -74,6 +74,12 @@ dependencies {
     implementation(libs.androidx.hilt.navigation.compose)
 
     implementation(libs.converter.gson)
+
+    // MockK
+    testImplementation("io.mockk:mockk:1.12.0") // 最新バージョンは適宜確認
+
+    // Kotlin Coroutines Test
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4") // 最新バージョンは適宜確認
 }
 secrets {
     // Optionally specify a different file name containing your secrets.
