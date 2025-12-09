@@ -1,6 +1,5 @@
 package com.example.todoAppRemake.data.remote.model
 
-import com.example.todoAppRemake.data.remote.deserializer.BlockDeserializer
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import org.junit.Assert.assertEquals
@@ -9,19 +8,20 @@ import org.junit.Before
 import org.junit.Test
 
 class BlockDeserializationTest {
-
     private lateinit var gson: Gson
 
     @Before
     fun setup() {
-        gson = GsonBuilder()
-            .registerTypeAdapter(Block::class.java, BlockDeserializer())
-            .create()
+        gson =
+            GsonBuilder()
+                .registerTypeAdapter(Block::class.java, BlockDeserializer())
+                .create()
     }
 
     @Test
     fun `heading_1ブロックが正しくデシリアライズされること`() {
-        val json = """
+        val json =
+            """
             {
                 "object": "block",
                 "id": "block-id-h1",
@@ -47,7 +47,7 @@ class BlockDeserializationTest {
                     "color": "default"
                 }
             }
-        """.trimIndent()
+            """.trimIndent()
 
         val block = gson.fromJson(json, Block::class.java)
 
@@ -60,7 +60,8 @@ class BlockDeserializationTest {
 
     @Test
     fun `heading_2ブロックが正しくデシリアライズされること`() {
-        val json = """
+        val json =
+            """
             {
                 "object": "block",
                 "id": "block-id-h2",
@@ -86,7 +87,7 @@ class BlockDeserializationTest {
                     "color": "default"
                 }
             }
-        """.trimIndent()
+            """.trimIndent()
 
         val block = gson.fromJson(json, Block::class.java)
 
@@ -99,7 +100,8 @@ class BlockDeserializationTest {
 
     @Test
     fun `heading_3ブロックが正しくデシリアライズされること`() {
-        val json = """
+        val json =
+            """
             {
                 "object": "block",
                 "id": "block-id-h3",
@@ -125,7 +127,7 @@ class BlockDeserializationTest {
                     "color": "default"
                 }
             }
-        """.trimIndent()
+            """.trimIndent()
 
         val block = gson.fromJson(json, Block::class.java)
 
@@ -138,7 +140,8 @@ class BlockDeserializationTest {
 
     @Test
     fun `paragraphブロックが正しくデシリアライズされること`() {
-        val json = """
+        val json =
+            """
             {
                 "object": "block",
                 "id": "block-id-para",
@@ -163,7 +166,7 @@ class BlockDeserializationTest {
                     "color": "default"
                 }
             }
-        """.trimIndent()
+            """.trimIndent()
 
         val block = gson.fromJson(json, Block::class.java)
 
@@ -176,7 +179,8 @@ class BlockDeserializationTest {
 
     @Test
     fun `to_doブロックが正しくデシリアライズされること`() {
-        val json = """
+        val json =
+            """
             {
                 "object": "block",
                 "id": "block-id-todo",
@@ -202,7 +206,7 @@ class BlockDeserializationTest {
                     "color": "default"
                 }
             }
-        """.trimIndent()
+            """.trimIndent()
 
         val block = gson.fromJson(json, Block::class.java)
 
@@ -216,7 +220,8 @@ class BlockDeserializationTest {
 
     @Test
     fun `bulleted_list_itemブロックが正しくデシリアライズされること`() {
-        val json = """
+        val json =
+            """
             {
                 "object": "block",
                 "id": "block-id-bullet",
@@ -241,7 +246,7 @@ class BlockDeserializationTest {
                     "color": "default"
                 }
             }
-        """.trimIndent()
+            """.trimIndent()
 
         val block = gson.fromJson(json, Block::class.java)
 
@@ -254,7 +259,8 @@ class BlockDeserializationTest {
 
     @Test
     fun `toggleブロックが正しくデシリアライズされること`() {
-        val json = """
+        val json =
+            """
             {
                 "object": "block",
                 "id": "block-id-toggle",
@@ -279,7 +285,7 @@ class BlockDeserializationTest {
                     "color": "default"
                 }
             }
-        """.trimIndent()
+            """.trimIndent()
 
         val block = gson.fromJson(json, Block::class.java)
 
@@ -292,7 +298,8 @@ class BlockDeserializationTest {
 
     @Test
     fun `numbered_list_itemブロックが正しくデシリアライズされること`() {
-        val json = """
+        val json =
+            """
             {
                 "object": "block",
                 "id": "block-id-numlist",
@@ -317,7 +324,7 @@ class BlockDeserializationTest {
                     "color": "default"
                 }
             }
-        """.trimIndent()
+            """.trimIndent()
 
         val block = gson.fromJson(json, Block::class.java)
 
@@ -330,7 +337,8 @@ class BlockDeserializationTest {
 
     @Test
     fun `サポートされていないブロックタイプが正しくデシリアライズされること`() {
-        val json = """
+        val json =
+            """
             {
                 "object": "block",
                 "id": "block-id-unsupported",
@@ -344,7 +352,7 @@ class BlockDeserializationTest {
                 "type": "unsupported_type",
                 "unsupported_type": {} 
             }
-        """.trimIndent()
+            """.trimIndent()
 
         val block = gson.fromJson(json, Block::class.java)
 
