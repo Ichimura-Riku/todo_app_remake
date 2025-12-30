@@ -33,7 +33,7 @@ subprojects {
             endWithNewline()
         }
         format("misc") {
-            target("*.md", ".gitignore", "*.xml", "*.gradle")
+            target("*.md", ".gitignore", "*.xml", "*.gradle.kts")
             trimTrailingWhitespace()
             endWithNewline()
         }
