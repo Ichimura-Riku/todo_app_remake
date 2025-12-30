@@ -57,11 +57,3 @@ buildscript {
         classpath(libs.secrets.gradle.plugin)
     }
 }
-
-task("addPreCommitGitHookOnBuild") {
-    println("⚈ ⚈ ⚈ Running Add Pre Commit Git Hook Script on Build ⚈ ⚈ ⚈")
-    exec {
-        commandLine("cp", "./pre-commit", "./.git/hooks")
-    }
-    println("✅ Added Pre Commit Git Hook Script.")
-}
