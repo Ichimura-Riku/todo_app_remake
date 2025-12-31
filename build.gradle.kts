@@ -7,7 +7,7 @@ plugins {
     alias(libs.plugins.kotlin.android) apply false
     alias(libs.plugins.kotlin.compose) apply false
     alias(libs.plugins.spotless)
-    id("com.google.dagger.hilt.android") version "2.51.1" apply false
+    alias(libs.plugins.hilt.android) apply false
 }
 
 subprojects {
@@ -17,11 +17,11 @@ subprojects {
         ratchetFrom("origin/main")
         kotlin {
             target("src/**/*.kt")
-            ktlint("1.5.0")
+            ktlint(libs.versions.ktlint.get())
                 .setEditorConfigPath("${rootProject.projectDir}/.editorconfig")
                 .customRuleSets(
                     listOf(
-                        "io.nlopez.compose.rules:ktlint:0.4.16",
+                        libs.compose.rules.ktlint.get().toString(),
                     ),
                 )
         }
