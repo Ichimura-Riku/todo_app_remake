@@ -18,7 +18,7 @@ subprojects {
         kotlin {
             target("src/**/*.kt")
             ktlint("1.5.0")
-                .setEditorConfigPath("$projectDir/.editorconfig") // sample unusual placement
+                .setEditorConfigPath("${rootProject.projectDir}/.editorconfig")
                 .editorConfigOverride(
                     mapOf(
                         "indent_size" to 4,

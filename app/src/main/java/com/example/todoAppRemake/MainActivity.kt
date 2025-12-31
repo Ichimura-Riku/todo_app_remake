@@ -39,10 +39,10 @@ fun AppScaffold(modifier: Modifier = Modifier) {
         topBar = {
             TopAppBar(
                 colors =
-                    TopAppBarDefaults.topAppBarColors(
-                        containerColor = MaterialTheme.colorScheme.primaryContainer,
-                        titleContentColor = MaterialTheme.colorScheme.primary,
-                    ),
+                TopAppBarDefaults.topAppBarColors(
+                    containerColor = MaterialTheme.colorScheme.primaryContainer,
+                    titleContentColor = MaterialTheme.colorScheme.primary,
+                ),
                 title = {
                     Text("Small Top App Bar")
                 },
