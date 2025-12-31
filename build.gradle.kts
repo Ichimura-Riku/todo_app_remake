@@ -19,18 +19,11 @@ subprojects {
             target("src/**/*.kt")
             ktlint("1.5.0")
                 .setEditorConfigPath("${rootProject.projectDir}/.editorconfig")
-                .editorConfigOverride(
-                    mapOf(
-                        "indent_size" to 4,
-                        // intellij_idea is the default style we preset in Spotless, you can override it referring to https://pinterest.github.io/ktlint/latest/rules/code-styles.
-                        "ktlint_code_style" to "intellij_idea",
-                    ),
-                ).customRuleSets(
+                .customRuleSets(
                     listOf(
                         "io.nlopez.compose.rules:ktlint:0.4.16",
                     ),
                 )
-            endWithNewline()
         }
         format("misc") {
             target("*.md", ".gitignore", "*.xml", "*.gradle")
