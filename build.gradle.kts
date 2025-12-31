@@ -7,7 +7,7 @@ plugins {
     alias(libs.plugins.kotlin.android) apply false
     alias(libs.plugins.kotlin.compose) apply false
     alias(libs.plugins.spotless)
-    id("com.google.dagger.hilt.android") version "2.51.1" apply false
+    alias(libs.plugins.hilt.android) apply false
 }
 
 subprojects {
@@ -17,23 +17,18 @@ subprojects {
         ratchetFrom("origin/main")
         kotlin {
             target("src/**/*.kt")
-            ktlint("1.5.0")
-                .setEditorConfigPath("$projectDir/.editorconfig") // sample unusual placement
-                .editorConfigOverride(
-                    mapOf(
-                        "indent_size" to 4,
-                        // intellij_idea is the default style we preset in Spotless, you can override it referring to https://pinterest.github.io/ktlint/latest/rules/code-styles.
-                        "ktlint_code_style" to "intellij_idea",
-                    ),
-                ).customRuleSets(
+            ktlint(libs.versions.ktlint.get())
+                .setEditorConfigPath("${rootProject.projectDir}/.editorconfig")
+                .customRuleSets(
                     listOf(
-                        "io.nlopez.compose.rules:ktlint:0.4.16",
+                        libs.compose.rules.ktlint
+                            .get()
+                            .toString(),
                     ),
                 )
-            endWithNewline()
         }
         format("misc") {
-            target("*.md", ".gitignore", "*.xml", "*.gradle")
+            target("*.md", ".gitignore", "*.xml")
             trimTrailingWhitespace()
             endWithNewline()
         }
@@ -56,12 +51,4 @@ buildscript {
     dependencies {
         classpath(libs.secrets.gradle.plugin)
     }
-}
-
-task("addPreCommitGitHookOnBuild") {
-    println("⚈ ⚈ ⚈ Running Add Pre Commit Git Hook Script on Build ⚈ ⚈ ⚈")
-    exec {
-        commandLine("cp", "./pre-commit", "./.git/hooks")
-    }
-    println("✅ Added Pre Commit Git Hook Script.")
 }
