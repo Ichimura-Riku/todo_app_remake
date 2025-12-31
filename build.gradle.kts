@@ -21,12 +21,14 @@ subprojects {
                 .setEditorConfigPath("${rootProject.projectDir}/.editorconfig")
                 .customRuleSets(
                     listOf(
-                        libs.compose.rules.ktlint.get().toString(),
+                        libs.compose.rules.ktlint
+                            .get()
+                            .toString(),
                     ),
                 )
         }
         format("misc") {
-            target("*.md", ".gitignore", "*.xml", "*.gradle")
+            target("*.md", ".gitignore", "*.xml")
             trimTrailingWhitespace()
             endWithNewline()
         }
