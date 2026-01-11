@@ -23,7 +23,8 @@ updates:
           - "com.squareup.retrofit2:*"
       kotlin:
         patterns:
-          - "org.jetbrains.kotlin*"
+          - "org.jetbrains.kotlin:*"
+          - "org.jetbrains.kotlin.*"
       lifecycle:
         patterns:
           - "androidx.lifecycle:*"
