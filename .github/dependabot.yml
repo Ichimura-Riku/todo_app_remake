@@ -9,6 +9,27 @@ updates:
       - "dependencies"
     commit-message:
       prefix: "chore(deps)"
+    groups:
+      compose:
+        patterns:
+          - "androidx.compose*"
+          - "androidx.activity:activity-compose"
+      hilt:
+        patterns:
+          - "com.google.dagger:hilt-*"
+          - "androidx.hilt:*"
+      retrofit:
+        patterns:
+          - "com.squareup.retrofit2:*"
+      kotlin:
+        patterns:
+          - "org.jetbrains.kotlin*"
+      lifecycle:
+        patterns:
+          - "androidx.lifecycle:*"
+      navigation:
+        patterns:
+          - "androidx.navigation:*"
 
   - package-ecosystem: "github-actions"
     directory: "/"
