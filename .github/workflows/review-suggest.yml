@@ -9,7 +9,7 @@ jobs:
         with:
           ref: main # 一度mainでcheckoutする
       - uses: actions/checkout@v2 # 目的のブランチでcheckoutする
-      - uses: actions/setup-java@v1 # JDK 11が必要なければ消してください
+      - uses: actions/setup-java@v5 # JDK 11が必要なければ消してください
         with:
           java-version: '17'
       - name: Create secrets.properties
