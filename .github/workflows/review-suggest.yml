@@ -5,10 +5,10 @@ jobs:
     name: / runner / suggester / spotless
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v6
         with:
           ref: main # 一度mainでcheckoutする
-      - uses: actions/checkout@v2 # 目的のブランチでcheckoutする
+      - uses: actions/checkout@v6 # 目的のブランチでcheckoutする
       - uses: actions/setup-java@v1 # JDK 11が必要なければ消してください
         with:
           java-version: '17'
