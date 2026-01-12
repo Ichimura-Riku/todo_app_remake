@@ -28,7 +28,7 @@ subprojects {
                 )
         }
         format("misc") {
-            target("*.md", ".gitignore", "*.xml")
+            target("*.md", ".gitignore", "*.xml", "*.yml")
             trimTrailingWhitespace()
             endWithNewline()
         }
